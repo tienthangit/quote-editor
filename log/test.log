@@ -1,0 +1,673 @@
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (22.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "quote_editor_test"[0m
+  [1m[35m (107.0ms)[0m  [1m[35mCREATE DATABASE "quote_editor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "quotes" CASCADE[0m
+  [1m[35m (5.5ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240830082321)[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-08-30 08:45:21.944182', '2024-08-30 08:45:21.944184') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '491846d080504a49ec50d54fac6443445059c4d6', '2024-08-30 08:45:21.945182', '2024-08-30 08:45:21.945183') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "quotes";
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at") VALUES (309456473, 'First quote', '2024-08-30 08:45:22.434655', '2024-08-30 08:45:22.434655'), (908005739, 'Second quote', '2024-08-30 08:45:22.434655', '2024-08-30 08:45:22.434655'), (607264868, 'Third quote', '2024-08-30 08:45:22.434655', '2024-08-30 08:45:22.434655')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "quotes" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (60.5ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+QuotesTest: test_Destroying_a_quote
+-----------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:25 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1593)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1691)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 4179)
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+QuotesTest: test_Updating_a_quote
+---------------------------------
+  [1m[36mQuote Load (1.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:26 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 208)
+  Rendered layout layouts/application.html.erb (Duration: 0.2ms | Allocations: 264)
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 501)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+QuotesTest: test_Showing_a_quote
+--------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:26 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 208)
+  Rendered layout layouts/application.html.erb (Duration: 0.4ms | Allocations: 264)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 499)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "quotes";
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at") VALUES (309456473, 'First quote', '2024-08-30 08:45:50.417243', '2024-08-30 08:45:50.417243'), (908005739, 'Second quote', '2024-08-30 08:45:50.417243', '2024-08-30 08:45:50.417243'), (607264868, 'Third quote', '2024-08-30 08:45:50.417243', '2024-08-30 08:45:50.417243')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "quotes" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.0ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+QuotesTest: test_Updating_a_quote
+---------------------------------
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:52 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 991)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 1089)
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms | Allocations: 3575)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+QuotesTest: test_Showing_a_quote
+--------------------------------
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:52 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 208)
+  Rendered layout layouts/application.html.erb (Duration: 0.3ms | Allocations: 264)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 501)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+QuotesTest: test_Destroying_a_quote
+-----------------------------------
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:45:53 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 208)
+  Rendered layout layouts/application.html.erb (Duration: 0.2ms | Allocations: 264)
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 500)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "quotes";
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at") VALUES (309456473, 'First quote', '2024-08-30 08:49:38.106892', '2024-08-30 08:49:38.106892'), (908005739, 'Second quote', '2024-08-30 08:49:38.106892', '2024-08-30 08:49:38.106892'), (607264868, 'Third quote', '2024-08-30 08:49:38.106892', '2024-08-30 08:49:38.106892')[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "quotes" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.8ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+QuotesTest: test_Showing_a_quote
+--------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:49:39 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.7ms | Allocations: 634)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 37.2ms | Allocations: 1524)
+  Rendered layout layouts/application.html.erb (Duration: 897.2ms | Allocations: 87391)
+Completed 200 OK in 917ms (Views: 911.9ms | ActiveRecord: 0.3ms | Allocations: 91707)
+Started GET "/assets/application-a72913f4c604bc8f97dd576fc8777bf029401f6af0e14b6a6c9d3874acfe73e4.css" for 127.0.0.1 at 2024-08-30 15:49:40 +0700
+Started GET "/assets/application-885554f78c6dbdfe6d94a559a4d0c1050914d822dc9dc5dafeb61d6e4ae6a0ac.js" for 127.0.0.1 at 2024-08-30 15:49:40 +0700
+Started GET "/quotes/309456473" for 127.0.0.1 at 2024-08-30 15:49:40 +0700
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/show.html.erb within layouts/application
+  Rendered quotes/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 407)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1274)
+Completed 200 OK in 21ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 3604)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+QuotesTest: test_Updating_a_quote
+---------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:49:40 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.3ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | Allocations: 1620)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.4ms | Allocations: 1893)
+Started GET "/quotes/309456473/edit" for 127.0.0.1 at 2024-08-30 15:49:41 +0700
+Processing by QuotesController#edit as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/edit.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 43.3ms | Allocations: 22871)
+  Rendered quotes/edit.html.erb within layouts/application (Duration: 45.9ms | Allocations: 23339)
+  Rendered layout layouts/application.html.erb (Duration: 46.2ms | Allocations: 24270)
+Completed 200 OK in 48ms (Views: 46.5ms | ActiveRecord: 0.3ms | Allocations: 24732)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+QuotesTest: test_Destroying_a_quote
+-----------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:49:43 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.4ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 705)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1630)
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms | Allocations: 1915)
+Started DELETE "/quotes/309456473" for 127.0.0.1 at 2024-08-30 15:49:43 +0700
+Processing by QuotesController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mQuote Destroy (0.5ms)[0m  [1m[31mDELETE FROM "quotes" WHERE "quotes"."id" = $1[0m  [["id", 309456473]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54579/quotes
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms | Allocations: 1162)
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:49:43 +0700
+Processing by QuotesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [2 times] (Duration: 0.3ms | Allocations: 272)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1534)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1841)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "quotes";
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at") VALUES (309456473, 'First quote', '2024-08-30 08:54:27.002930', '2024-08-30 08:54:27.002930'), (908005739, 'Second quote', '2024-08-30 08:54:27.002930', '2024-08-30 08:54:27.002930'), (607264868, 'Third quote', '2024-08-30 08:54:27.002930', '2024-08-30 08:54:27.002930')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "quotes" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.9ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+QuotesTest: test_Showing_a_quote
+--------------------------------
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:54:28 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.9ms | Allocations: 634)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 37.2ms | Allocations: 1524)
+  Rendered layout layouts/application.html.erb (Duration: 321.4ms | Allocations: 22823)
+Completed 200 OK in 375ms (Views: 369.8ms | ActiveRecord: 0.5ms | Allocations: 27139)
+Started GET "/assets/application-a72913f4c604bc8f97dd576fc8777bf029401f6af0e14b6a6c9d3874acfe73e4.css" for 127.0.0.1 at 2024-08-30 15:54:28 +0700
+Started GET "/assets/application-885554f78c6dbdfe6d94a559a4d0c1050914d822dc9dc5dafeb61d6e4ae6a0ac.js" for 127.0.0.1 at 2024-08-30 15:54:28 +0700
+Started GET "/quotes/309456473" for 127.0.0.1 at 2024-08-30 15:54:28 +0700
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/show.html.erb within layouts/application
+  Rendered quotes/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 2798)
+Completed 200 OK in 75ms (Views: 55.0ms | ActiveRecord: 0.5ms | Allocations: 8351)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+QuotesTest: test_Destroying_a_quote
+-----------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:54:29 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.3ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1620)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 1893)
+Started DELETE "/quotes/309456473" for 127.0.0.1 at 2024-08-30 15:54:29 +0700
+Processing by QuotesController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mQuote Destroy (0.7ms)[0m  [1m[31mDELETE FROM "quotes" WHERE "quotes"."id" = $1[0m  [["id", 309456473]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:54653/quotes
+Completed 302 Found in 4ms (ActiveRecord: 1.4ms | Allocations: 1790)
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:54:29 +0700
+Processing by QuotesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [2 times] (Duration: 0.2ms | Allocations: 272)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 616)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1532)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1838)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+QuotesTest: test_Updating_a_quote
+---------------------------------
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 15:54:29 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.3ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1622)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 1895)
+Started GET "/quotes/309456473/edit" for 127.0.0.1 at 2024-08-30 15:54:29 +0700
+Processing by QuotesController#edit as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (1.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/edit.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 15.7ms | Allocations: 15861)
+  Rendered quotes/edit.html.erb within layouts/application (Duration: 17.6ms | Allocations: 16328)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 17258)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 1.1ms | Allocations: 18343)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM "quotes";
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at") VALUES (309456473, 'First quote', '2024-08-30 09:05:37.281607', '2024-08-30 09:05:37.281607'), (908005739, 'Second quote', '2024-08-30 09:05:37.281607', '2024-08-30 09:05:37.281607'), (607264868, 'Third quote', '2024-08-30 09:05:37.281607', '2024-08-30 09:05:37.281607')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "quotes" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+QuotesTest: test_Destroying_a_quote
+-----------------------------------
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 16:05:38 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.7ms | Allocations: 634)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 37.8ms | Allocations: 1523)
+  Rendered layout layouts/application.html.erb (Duration: 363.5ms | Allocations: 23028)
+Completed 200 OK in 400ms (Views: 393.5ms | ActiveRecord: 0.4ms | Allocations: 27344)
+Started GET "/assets/application-a72913f4c604bc8f97dd576fc8777bf029401f6af0e14b6a6c9d3874acfe73e4.css" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Started GET "/assets/application-885554f78c6dbdfe6d94a559a4d0c1050914d822dc9dc5dafeb61d6e4ae6a0ac.js" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Started DELETE "/quotes/309456473" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Processing by QuotesController#destroy as TURBO_STREAM
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mQuote Destroy (19.0ms)[0m  [1m[31mDELETE FROM "quotes" WHERE "quotes"."id" = $1[0m  [["id", 309456473]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:56894/quotes
+Completed 302 Found in 93ms (ActiveRecord: 19.9ms | Allocations: 8150)
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Processing by QuotesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [2 times] (Duration: 0.2ms | Allocations: 272)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 2226)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | Allocations: 4770)
+Completed 200 OK in 56ms (Views: 55.1ms | ActiveRecord: 0.3ms | Allocations: 6483)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------
+QuotesTest: test_Showing_a_quote
+--------------------------------
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.3ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1620)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms | Allocations: 1894)
+Started GET "/quotes/309456473" for 127.0.0.1 at 2024-08-30 16:05:39 +0700
+Processing by QuotesController#show as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/show.html.erb within layouts/application
+  Rendered quotes/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 426)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | Allocations: 1295)
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1736)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+QuotesTest: test_Updating_a_quote
+---------------------------------
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 16:05:40 +0700
+Processing by QuotesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.3ms | Allocations: 397)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 697)
+  Rendered layout layouts/application.html.erb (Duration: 1.5ms | Allocations: 1620)
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1893)
+Started GET "/quotes/309456473/edit" for 127.0.0.1 at 2024-08-30 16:05:40 +0700
+Processing by QuotesController#edit as HTML
+  Parameters: {"id"=>"309456473"}
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/edit.html.erb within layouts/application
+  Rendered quotes/_form.html.erb (Duration: 18.0ms | Allocations: 15438)
+  Rendered quotes/edit.html.erb within layouts/application (Duration: 19.0ms | Allocations: 15904)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 16834)
+Completed 200 OK in 22ms (Views: 19.6ms | ActiveRecord: 0.4ms | Allocations: 17455)
+Started PATCH "/quotes/309456473" for 127.0.0.1 at 2024-08-30 16:05:40 +0700
+Processing by QuotesController#update as TURBO_STREAM
+  Parameters: {"quote"=>{"name"=>"Updated quote"}, "commit"=>"Update quote", "id"=>"309456473"}
+  [1m[36mCACHE Quote Load (0.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes" WHERE "quotes"."id" = $1 LIMIT $2[0m  [["id", 309456473], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mQuote Update (0.5ms)[0m  [1m[33mUPDATE "quotes" SET "name" = $1, "updated_at" = $2 WHERE "quotes"."id" = $3[0m  [["name", "Updated quote"], ["updated_at", "2024-08-30 09:05:40.226043"], ["id", 309456473]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://127.0.0.1:56894/quotes
+Completed 302 Found in 2ms (ActiveRecord: 0.7ms | Allocations: 1422)
+Started GET "/quotes" for 127.0.0.1 at 2024-08-30 16:05:40 +0700
+Processing by QuotesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering quotes/index.html.erb within layouts/application
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  Rendered collection of quotes/_quote.html.erb [3 times] (Duration: 0.2ms | Allocations: 391)
+  Rendered quotes/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 685)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | Allocations: 1862)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 2215)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (30.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "quote_editor_test"[0m
+  [1m[35m (96.8ms)[0m  [1m[35mCREATE DATABASE "quote_editor_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "companies" CASCADE[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "companies" ("id" bigserial primary key, "name" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "quotes" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "company_id" bigint NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_quotes_on_company_id" ON "quotes" ("company_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp(6), "remember_created_at" timestamp(6), "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "company_id" bigint NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE INDEX "index_users_on_company_id" ON "users" ("company_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mALTER TABLE "quotes" ADD CONSTRAINT "fk_rails_9b32fbc45b"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD CONSTRAINT "fk_rails_7682a3bdfe"
+FOREIGN KEY ("company_id")
+  REFERENCES "companies" ("id")
+[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20241010153635)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20241010153634),
+(20241010152144),
+(20241010151313),
+(20240830082321);[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2024-10-15 14:54:41.476876', '2024-10-15 14:54:41.476883') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '21a58bcc13c5d3ef8c61825a056a8c2c0f44d784', '2024-10-15 14:54:41.479594', '2024-10-15 14:54:41.479599') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.6ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:54:47.054148', '2024-10-15 14:54:47.054148'), (527789713, 'PwC', '2024-10-15 14:54:47.054148', '2024-10-15 14:54:47.054148');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:54:47.125656', '2024-10-15 14:54:47.125656', 437724769), (908005739, 'Second quote', '2024-10-15 14:54:47.125656', '2024-10-15 14:54:47.125656', 437724769), (607264868, 'Third quote', '2024-10-15 14:54:47.125656', '2024-10-15 14:54:47.125656', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$dNOJZen2s4/J4xzq7hbiNeZ1Gsc3hwyhXIOlXSEWCNKlbxN3mOFUe', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.129917', '2024-10-15 14:54:47.129917', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$FZgZVE8Zrm2kYXvWdQQCoumWS7.tJG2MScvLd3iy48PwuDDPJhw.e', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.129917', '2024-10-15 14:54:47.129917', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$2CTe0hWipnZWIubv9m.oA.9OqLG3d4gq7HUiA4/WoJ6Cf6A/R6ve2', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.129917', '2024-10-15 14:54:47.129917', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.5ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:54:47.166098', '2024-10-15 14:54:47.166098'), (527789713, 'PwC', '2024-10-15 14:54:47.166098', '2024-10-15 14:54:47.166098');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:54:47.166368', '2024-10-15 14:54:47.166368', 437724769), (908005739, 'Second quote', '2024-10-15 14:54:47.166368', '2024-10-15 14:54:47.166368', 437724769), (607264868, 'Third quote', '2024-10-15 14:54:47.166368', '2024-10-15 14:54:47.166368', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$oqjEe90S7G6IPJB77Kg1DO4SqFaTktZT6oCVeF91dUbTzBzgKTk2a', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.166525', '2024-10-15 14:54:47.166525', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$DMJ4Hhrc5ueE2xzxMUtnheCJft4NxUCERFir713.2C.RPUNaorCSG', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.166525', '2024-10-15 14:54:47.166525', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$RucoFw38KV93CM1yBe/XCO65xynjvM/KSVn1LUrkxDK0ARCguA5yG', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.166525', '2024-10-15 14:54:47.166525', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:54:47.183450', '2024-10-15 14:54:47.183450'), (527789713, 'PwC', '2024-10-15 14:54:47.183450', '2024-10-15 14:54:47.183450');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:54:47.183531', '2024-10-15 14:54:47.183531', 437724769), (908005739, 'Second quote', '2024-10-15 14:54:47.183531', '2024-10-15 14:54:47.183531', 437724769), (607264868, 'Third quote', '2024-10-15 14:54:47.183531', '2024-10-15 14:54:47.183531', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$NgZ8KS0hpHCExWVX6.IUvOFjPBYeK6Vn4v.TejHtnaNukqyI82Cja', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.183587', '2024-10-15 14:54:47.183587', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$UZroxtHMoIr197.9bmhPcexcub2h25a8YoEZOED4EDVLlBknjLJ8O', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.183587', '2024-10-15 14:54:47.183587', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$MWGra4KY8Wd5jd4DvTV9rO3q07fOsEItOhcl3NtLVRbHrhag2xvi6', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.183587', '2024-10-15 14:54:47.183587', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:54:47.192677', '2024-10-15 14:54:47.192677'), (527789713, 'PwC', '2024-10-15 14:54:47.192677', '2024-10-15 14:54:47.192677');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:54:47.192743', '2024-10-15 14:54:47.192743', 437724769), (908005739, 'Second quote', '2024-10-15 14:54:47.192743', '2024-10-15 14:54:47.192743', 437724769), (607264868, 'Third quote', '2024-10-15 14:54:47.192743', '2024-10-15 14:54:47.192743', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$hnsWyybT4lP.9aKkpCti/.ap59Hn/cZHR336JU/9F9XqirEgSAF9S', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.192778', '2024-10-15 14:54:47.192778', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$qiEAeG8ejvtbt83ieasI8esAeVp9oGHsC6tSN.LCbInTwGMOisGM2', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.192778', '2024-10-15 14:54:47.192778', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$3B.QFRbTdd32PVzy1E4xyumPvJmWLZf0NDMHgwnQdmmwon/kxdF7q', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.192778', '2024-10-15 14:54:47.192778', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:54:47.199869', '2024-10-15 14:54:47.199869'), (527789713, 'PwC', '2024-10-15 14:54:47.199869', '2024-10-15 14:54:47.199869');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:54:47.199917', '2024-10-15 14:54:47.199917', 437724769), (908005739, 'Second quote', '2024-10-15 14:54:47.199917', '2024-10-15 14:54:47.199917', 437724769), (607264868, 'Third quote', '2024-10-15 14:54:47.199917', '2024-10-15 14:54:47.199917', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$r0QpF0F9pOiuyoNtUDzz1.GHvMpnQGJPXL/5f1FpLV3YAKVBAHv5a', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.199948', '2024-10-15 14:54:47.199948', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$Ui.m6Ac/2LU9yFhjpmJfaumjIJnqgGxGvCA67xUOJLKbksm.nTqKK', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.199948', '2024-10-15 14:54:47.199948', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$s3pYAlQum3rCG4IdxEM2T.FLN8c9xZ8Ngi78EBONBaLov2uFi4qVC', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:54:47.199948', '2024-10-15 14:54:47.199948', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (3.2ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:55:02.276155', '2024-10-15 14:55:02.276155'), (527789713, 'PwC', '2024-10-15 14:55:02.276155', '2024-10-15 14:55:02.276155');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:55:02.286021', '2024-10-15 14:55:02.286021', 437724769), (908005739, 'Second quote', '2024-10-15 14:55:02.286021', '2024-10-15 14:55:02.286021', 437724769), (607264868, 'Third quote', '2024-10-15 14:55:02.286021', '2024-10-15 14:55:02.286021', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$HFDx.PB5aQjuOb2s6xsExOTsPsZE2p2cCb4jP7NVGSGJo3ccsKjYC', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.291319', '2024-10-15 14:55:02.291319', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$ZjHESQsQvraC7lV37C1Z/exx9VuCG44w6AFJTW34hnf.dhzgRWs62', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.291319', '2024-10-15 14:55:02.291319', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$IajpjXM26vGwAIEPwbKuTeZ.Fae/wRYYjRrUZWloM/Iu1fJTqp4Oq', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.291319', '2024-10-15 14:55:02.291319', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:55:02.306554', '2024-10-15 14:55:02.306554'), (527789713, 'PwC', '2024-10-15 14:55:02.306554', '2024-10-15 14:55:02.306554');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:55:02.306582', '2024-10-15 14:55:02.306582', 437724769), (908005739, 'Second quote', '2024-10-15 14:55:02.306582', '2024-10-15 14:55:02.306582', 437724769), (607264868, 'Third quote', '2024-10-15 14:55:02.306582', '2024-10-15 14:55:02.306582', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$Uf/d1fz5/Bk1DVUfk/lQwuYDRLCb/fR5iahlBdbNVAFiFUOu1JAl2', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.306608', '2024-10-15 14:55:02.306608', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$gj5E8XRwi8BLl2ydf9Bur.oeKofJOMs7izi.gXOYSot6TMRKk4yDG', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.306608', '2024-10-15 14:55:02.306608', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$RWADtC0RWOAx4gxnQBQueehTBy.JhtoefJ3sgUx.8FuAyrT19r.1y', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.306608', '2024-10-15 14:55:02.306608', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:55:02.314966', '2024-10-15 14:55:02.314966'), (527789713, 'PwC', '2024-10-15 14:55:02.314966', '2024-10-15 14:55:02.314966');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:55:02.314995', '2024-10-15 14:55:02.314995', 437724769), (908005739, 'Second quote', '2024-10-15 14:55:02.314995', '2024-10-15 14:55:02.314995', 437724769), (607264868, 'Third quote', '2024-10-15 14:55:02.314995', '2024-10-15 14:55:02.314995', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$Iw5oqYzP45VJdb.Jnrax5OWTQacNGiRlrxIqleIAxHM3fu2YFZAXi', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.315023', '2024-10-15 14:55:02.315023', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$CPm9Ddi0nl5CUyyEu0NUxOXnzv8oiWnNlVJfaHg8xQwtqWcXye1Au', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.315023', '2024-10-15 14:55:02.315023', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$iXgNeNem9NnWQo1UpoIHu.4uinRacGYJXg.rb34k8W23ZqnXSekNC', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.315023', '2024-10-15 14:55:02.315023', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "companies" DISABLE TRIGGER ALL;ALTER TABLE "quotes" DISABLE TRIGGER ALL;ALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[31mDELETE FROM "companies";
+DELETE FROM "quotes";
+DELETE FROM "users";
+INSERT INTO "companies" ("id", "name", "created_at", "updated_at") VALUES (437724769, 'KPMG', '2024-10-15 14:55:02.322097', '2024-10-15 14:55:02.322097'), (527789713, 'PwC', '2024-10-15 14:55:02.322097', '2024-10-15 14:55:02.322097');
+INSERT INTO "quotes" ("id", "name", "created_at", "updated_at", "company_id") VALUES (309456473, 'First quote', '2024-10-15 14:55:02.322140', '2024-10-15 14:55:02.322140', 437724769), (908005739, 'Second quote', '2024-10-15 14:55:02.322140', '2024-10-15 14:55:02.322140', 437724769), (607264868, 'Third quote', '2024-10-15 14:55:02.322140', '2024-10-15 14:55:02.322140', 437724769);
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "company_id") VALUES (661131654, 'accountant@kpmg.com', '$2a$04$b5Bj9mwt1Lza6xztZaoRDen2aMnxFo/o2aSZW5znv8k3l4U0ssBqW', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.322172', '2024-10-15 14:55:02.322172', DEFAULT), (975447484, 'manager@kpmg.com', '$2a$04$HY7fmwJ2XhMiO6r7s5NHDeoQJYGOopugKfs33fX2pgowPfrv4gmCO', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.322172', '2024-10-15 14:55:02.322172', DEFAULT), (775704662, 'eavesdropper@pwc.com', '$2a$04$xk/5bwXs86RFSwKg89G/5ecmEsafbW7bBumsloriF21KhRuI.oJVO', DEFAULT, DEFAULT, DEFAULT, '2024-10-15 14:55:02.322172', '2024-10-15 14:55:02.322172', DEFAULT)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
