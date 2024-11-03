@@ -1,3 +1,5 @@
+Project based on: https://www.hotrails.dev/
+
 # README
 
 This README would normally document whatever steps are necessary to get the
