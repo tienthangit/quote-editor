@@ -8819,3 +8819,17 @@ Finished "/cable" [WebSocket] for ::1 at 2024-11-03 01:46:38 +0700
 Started GET "/cable" for ::1 at 2024-11-03 02:35:08 +0700
 Started GET "/cable" [WebSocket] for ::1 at 2024-11-03 02:35:08 +0700
 Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+Started GET "/" for ::1 at 2025-03-09 17:17:56 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 7.5ms | Allocations: 3512)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 290)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 192.1ms | Allocations: 93765)
+Completed 200 OK in 211ms (Views: 196.8ms | ActiveRecord: 0.0ms | Allocations: 102671)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
