@@ -73,6 +73,8 @@ end
 
 gem "turbo-rails"
 gem "simple_form", "~> 5.1.0"
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
 
 gem "devise"
 gem 'capistrano', '~> 3.11'
