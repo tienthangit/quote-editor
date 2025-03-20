@@ -52,4 +52,4 @@ set :keep_releases, 5
 
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.2.6'
+set :rbenv_ruby, '3.2.7'
