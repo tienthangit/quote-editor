@@ -44,7 +44,7 @@ require 'capistrano/rbenv'
 set :rbenv_type, :user
 set :rbenv_ruby, '3.2.7'
 
-set :application, "myapp"
+set :application, "quote-editor"
 set :repo_url, "git@github.com:tienthangit/quote-editor.git"
 
 # Deploy to the user's home directory
